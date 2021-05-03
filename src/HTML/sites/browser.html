@@ -1,0 +1,55 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Stundenpläne: Hier findest du Links zu allen Plänen
+<php-metas />
+<meta property="og:title" content="Stundenpläne: Hier findest du Links zu allen Plänen" />
+<meta property="og:url" content="/browser/" />
+<meta
+	property="og:description"
+	content="Wähle hier aus wessen Stundenplan du  im simplen Design der WebUntis Alternative Jupiter ansehen möchtest. Sie können auch als Favorit gespeichert werden."
+/>
+<meta name="keywords" content="Stundenpläne,wähle,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Wähle hier aus wessen Stundenplan du  im simplen Design der WebUntis Alternative Jupiter ansehen möchtest. Sie können auch als Favorit gespeichert werden."
+/>
+<php-outeroverlays />
+<div id="contentShadow"></div>
+<php-content />
+<button class="accordion">Räume und Gebäude</button>
+<div class="panel" id="rooms">
+	<div style="display: flex; flex-wrap: wrap; column-gap: 20px">
+		<input class="search-bar" placeholder="Raum..." id="rooms_search" type="text" autocomplete="off" oninput="search('rooms')" list="rooms_data" />
+		<div style="--toggle-width: 60px; display: inline-flex; align-items: center; padding-bottom: 5px">
+			Freie Räume
+			<div style="position: relative; width: 60px; min-width: 60px; height: 25px; margin: 0 10px">
+				<label class="toggle"><input id="showAvailable" oninput="showAvailableChange()" type="checkbox" value="false" /><span class="slider round"></span></label>
+			</div>
+			<div>
+				<input type="datetime-local" id="freeRoomsDateTime" onchange="editFreeRoomsDateTime()" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<button class="accordion">Klassen</button>
+<div class="panel" id="classes">
+	<input class="search-bar" placeholder="Klasse..." id="classes_search" type="text" autocomplete="off" oninput="search('classes')" list="classes_data" />
+</div>
+
+<button class="accordion">Lehrer</button>
+<div class="panel" id="teachers">
+	<input class="search-bar" placeholder="Lehrer..." id="teachers_search" type="text" autocomplete="off" oninput="search('teachers')" list="teachers_data" />
+</div>
+
+<button class="accordion">Schüler</button>
+<div class="panel" id="students">
+	<input class="search-bar" placeholder="Schüler..." id="students_search" type="text" autocomplete="off" oninput="search('students')" list="students_data" />
+</div>
+
+<php-scripts />
+<script src="/JS/sites/browser.js"></script>

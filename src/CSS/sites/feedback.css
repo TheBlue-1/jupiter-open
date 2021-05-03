@@ -1,0 +1,26 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+.indent {
+	padding-left: 2em;
+	margin-bottom: 0.5em;
+}
+
+.wrap {
+	overflow-wrap: break-word;
+}
+
+li {
+	margin-bottom: 0.5em;
+}
+
+#emailIn {
+	max-width: 300px;
+	width: 100%;
+	margin-bottom: 2.5px;
+	margin-right: 1px;
+}

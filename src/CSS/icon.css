@@ -1,0 +1,139 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+:root {
+	--col-icon-menu: white;
+}
+
+.charging-icon {
+	display: inline-block;
+	background-image: url('/ICON/glyphicons-242-flash.png');
+	background-size: contain;
+	width: 14px;
+	height: 24px;
+}
+
+.fullscreen-icon {
+	display: inline-block;
+	background-image: url('/ICON/glyphicons-350-fullscreen.png');
+	background-size: contain;
+}
+
+.menu-icon {
+	position: relative;
+	width: 30px;
+	height: 3px;
+	border-radius: 3px;
+	background-color: var(--col-icon-menu);
+	top: -1px;
+	display: inline-block;
+	transition: 0.25s;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+	content: '';
+	width: 30px;
+	height: 3px;
+	border-radius: 3px;
+	position: absolute;
+	top: -7px;
+	left: 0;
+	transition: 0.25s;
+	background-color: var(--col-icon-menu);
+}
+
+.menu-icon::after {
+	top: 7px;
+}
+
+input[type='checkbox']:checked + .menu-icon {
+	width: 0px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+
+input[type='checkbox']:checked + .menu-icon::before {
+	transform: rotate(45deg);
+	top: 0;
+	left: -15px;
+}
+
+input[type='checkbox']:checked + .menu-icon::after {
+	transform: rotate(-45deg);
+	top: 0;
+	left: -15px;
+}
+
+.reload-icon::before {
+	content: url('/ICON/glyphicons-86-repeat.png');
+}
+
+.search-icon::before {
+	content: url('/ICON/glyphicons-28-search.png');
+}
+
+.star-icon::before {
+	content: url('/ICON/glyphicons-50-star.png');
+}
+
+.star-empty-icon::before {
+	content: url('/ICON/glyphicons-49-star-empty.png');
+}
+
+.edit-icon::before {
+	content: url('/ICON/glyphicons-151-edit.png');
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+}
+
+.add-icon {
+	background: url('/ICON/glyphicons-191-plus-sign.png');
+}
+
+input[type='checkbox']:checked + .edit-icon::before {
+	content: url('/ICON/glyphicons-208-remove.png');
+	top: 3px;
+	left: 3px;
+	position: relative;
+}
+
+.remove-icon::before {
+	content: url('/ICON/glyphicons-193-remove-sign.png');
+}
+
+.add-icon {
+	background-image: url('/ICON/glyphicons-191-plus-sign.png');
+	background-size: cover;
+}
+
+.download-icon {
+	background-image: url('/ICON/glyphicons-201-download.png');
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+}
+
+.cancel-icon {
+	background-image: url('/ICON/glyphicons-208-remove.png');
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+}
+
+.check-icon {
+	background-image: url('/ICON/glyphicons-207-ok.png');
+	display: inline-block;
+	width: 24px;
+	height: 20px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}

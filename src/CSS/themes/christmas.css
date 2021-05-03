@@ -1,0 +1,87 @@
+:root {
+	/*#e50022 - rot  #ffbf00 - gold  #009602 - grün*/
+	/*Main html*/
+	--col-theme: #009e03;
+	--col-button: var(--col-theme);
+	--col-button-hover: var(--col-theme);
+	--col-input-deco: #286728;
+	--col-ooo-text: var(--col-theme);
+	--col-loader: var(--col-theme);
+	--col-button-text: var(--col-text);
+	--col-text: #fff;
+	--col-slider: var(--col-theme);
+	--col-slider-btn: var(--col-text);
+	--col-background: #101258;
+	--col-ooo: var(--col-panel);
+	--col-link: var(--col-theme);
+	--col-link-hover: #721111;
+	--col-toast: #777;
+	--col-acc: #008035;
+	--col-acc-text: var(--col-text);
+	--col-acc-hover: #var(--col-theme);
+	--col-panel: #dd0707;
+	--col-popup: var(--col-panel);
+	--col-description-text: white;
+	--col-sidenav: #008035;
+	--col-line: #2b2a2a;
+	--col-nav: #dd0707;
+	/*e50022;*/
+	--col-wall: #64646433;
+	--col-listedtexts: #a30000;
+	--col-showytext-text: gray;
+	/*browser*/
+	--col-browser-acc-item: var(--col-acc);
+	--col-browser-acc-item-hov: var(--col-acc-hover);
+	/*calendar*/
+	--col-calendar-day: var(--col-panel);
+	--col-calendar-today: #2b2a2a;
+	--col-calendar-addbtn: #313131;
+	--col-calendar-event-text: var(--col-text);
+	/*consutlation*/
+	--col-consultation-resultbox: var(--col-panel);
+	--col-consultation-popup: var(--col-popup);
+	--col-consultation-emptyselect-text: var(--col-showytext-text);
+	--col-consultation-emptyselect-option-text: initial;
+	--col-consultation-day: var(--col-panel);
+	--col-consultation-entry: #313131;
+	--col-consultation-time-text: #666;
+	--col-icon-menu: var(--col-text);
+	/*overview*/
+	--col-overview-box: var(--col-panel);
+	--col-overview-dragbar: var(--col-theme);
+	--col-overview-paneledit: var(--col-background);
+	--col-overview-alwayson-text: var(--col-text);
+	--col-overview-hiddenpanels: #aaa;
+	/*settings*/
+	--col-settings-setting: #e50022;
+	--col-settings-title: #bbb;
+	/*table*/
+	--col-table-zoomcontrols-text: var(--col-text);
+	--col-table-lesson-text: black;
+	--col-table-break-text: gray;
+	--col-table-break: #404040;
+	--col-table-nodata-text: gray;
+	--col-table-overlay-text: var(--col-text);
+	--col-table-zoomcontrols: black;
+	--col-table-table: var(--col-background);
+	--col-teacher-block: var(--col-popup);
+	/*welcome*/
+	--col-welcome-news: #404040;
+	/*konstanten sollten gleich bleiben oder zumindest ähnlich*/
+	--const-col-calendar-event-custom: #ff6666;
+	--const-col-calendar-event-exam: #e6d600;
+	--const-col-calendar-event-homework: #6979b5;
+	--const-col-calendar-event-holiday: #a2d8f4;
+	--const-col-calendar-event-role: #8fae50;
+	--const-col-table-examcell: #ffed00;
+	--const-col-table-stanardcell: #dcdcdc;
+	--const-col-table-notstanardcell: orange;
+	--const-col-table-eventcell: #8fae50;
+	--const-col-table-cancelledcell: #b1b3b4;
+	--const-col-table-shiftcell: #a781b5;
+	--const-col-table-substitutioncell: #a781b5;
+	--const-col-table-additionalcell: #a781b5;
+	--const-col-table-roomsubstitutioncell: #6979b5;
+	--const-col-table-freecell: #53aedd;
+	--const-col-table-officehourcell: #f6b85e;
+}

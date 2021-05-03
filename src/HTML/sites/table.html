@@ -1,0 +1,61 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Stundenplan: Hier kannst du sehen welche Stunden du hast
+<php-metas />
+<meta property="og:title" content="Stundenplan: Hier kannst du sehen welche Stunden du hast" />
+<meta property="og:url" content="/table/" />
+<meta
+	property="og:description"
+	content="Schau dir deine Schulstunden im simplen Design der neuen WebUntis Alternative Jupiter an. Der Stundenplan mit einer einfachen schnellen Bedienung."
+/>
+<meta name="keywords" content="Stundenplan,Schulstunde,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Schau dir deine Schulstunden im simplen Design der neuen WebUntis Alternative Jupiter an. Der Stundenplan mit einer einfachen schnellen Bedienung."
+/>
+<php-outeroverlays />
+<div id="contentShadow">
+	<div id="zoomControls">
+		<button id="zoomIn" style="text-align: center; vertical-align: middle; width: 1em" class="round-button no-select" onclick="zoom(1, $(this))">+</button>
+		<button id="zoomOut" style="text-align: center; vertical-align: middle; width: 1em" class="round-button no-select" onclick="zoom(-1, $(this))">-</button>
+		<span style="display: inline-block; font-size: 9pt; min-width: 3em" id="zoomValue">100%</span>
+	</div>
+	<div id="dataDate"></div>
+</div>
+
+<php-outercontent />
+<div id="toolBar">
+	<div id="displayedDaysControls">
+		<input aria-label="Displayed Days" id="displayedDaysInput" type="number" min="1" max="365" step="1" value="7" oninput="changeDisplayedDays(this)" />
+	</div>
+	<div id="dateControls">
+		<button class="date-button" title="letzte Woche" onclick="changeDateByDays(-1)">◄</button>
+		<input aria-label="Date Input" type="date" id="dateInput" onchange="changeDate(this);" />
+		<button class="date-button" title="nächste Woche" onclick="changeDateByDays(1)">►</button>
+	</div>
+	<button aria-label="Save Table" style="background-color: transparent" onclick="toggleSaveTableHash()">
+		<span id="starIcon" class="star-empty-icon" title="Als Favorit speichern"></span>
+	</button>
+</div>
+
+<php-content />
+<div id="tableWrapper">
+	<div id="tableScroll">
+		<div style="min-width: 100%; height: 100%">
+			<div id="timeTable"></div>
+		</div>
+	</div>
+	<div id="noData" class="center inv">
+		<p>Nichts zum Anzeigen</p>
+	</div>
+	<div id="notAvaiable" class="center inv">
+		<p>Stundenplan ist nicht verfügbar</p>
+	</div>
+</div>
+<php-scripts />
+<script src="/JS/sites/table.js"></script>
+<script src="/JS/api/touchwipe.min.js"></script>

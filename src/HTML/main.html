@@ -1,0 +1,203 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+
+<!DOCTYPE html>
+
+<!--STANDARD HTML-->
+
+<html lang="de">
+	<head>
+		<title><php-title/></title>
+		<!--
+        title           45-60
+        description     130-160
+    -->
+		<meta charset="utf-8" />
+		<php-metas />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="DATA/logo/logo144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="DATA/logo/logo114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="DATA/logo/logo72.png" />
+		<link rel="apple-touch-icon-precomposed" href="DATA/logo/logo57.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/DATA/logo/logo512.png" />
+		<meta property="og:image:secure_url" content="/DATA/logo/logo512.png" />
+		<meta property="og:image:type" content="image/png" />
+		<meta property="og:locale" content="de_AT" />
+		<meta property="og:locale:alternate" content="de_DE" />
+		<meta property="og:locale:alternate" content="de_CH" />
+		<meta property="og:site_name" content="Jupiter" />
+		<meta name="abstract" content="Schnittstelle für Untis mit eigenen Features" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<meta name="audience" lang="DE-AT" content="Schüler,Student,Students,Schule,Lehrer,Teacher" />
+		<meta name="copyright" content="PlanetApps(Mayrhofer,Muth) 2018" />
+		<meta name="imprint" content="/imprint/" />
+		<!--CSS-->
+		<php-css />
+		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="preload" href="/JS/" as="script" />
+	</head>
+
+	<body>
+		<!--AGB zusimmung-->
+		<div id="agbCheck">
+			<div class="center">
+				<div>
+					<p>Sie müssen den <a href="/agb/">AGB</a> zusimmen um fortzufahren.</p>
+					<button onclick="agbCheck.complete()" class="menu-button">Ich stimme den AGB zu</button>
+				</div>
+			</div>
+		</div>
+		<!--Wird nur durch js aufgerufen-->
+		<div id="initLoader">
+			<div>
+				<div class="loader"></div>
+			</div>
+		</div>
+		<input id="globalFileInput" type="file" />
+
+		<div id="pageWrapper">
+			<!--    <button onclick="showLog()" style="position: fixed; bottom: 0; left: 0;z-index:500; font-size: 14pt">LOG</button>-->
+			<nav id="nav" class="dotted">
+				<a href="/">
+					<h1>
+						<php-headline />
+					</h1>
+					<img class="nav-icon" alt="" height="36" style="width: 36px; height: 36px; min-width: 36px" width="36" src="/DATA/logo/logo.svg" />
+				</a>
+				<div style="display: inline-flex">
+					<button id="userBtn" class="menu-button" onclick="<php-userbutton/>">
+						<php-usertext />
+					</button>
+					<label class="menu-button" id="sideNavButton" style="display: flex" onchange="toggleSideNav()">
+						<input autocomplete="off" type="checkbox" />
+						<span class="menu-icon"></span>
+					</label>
+				</div>
+			</nav>
+
+			<!--CONTENT-->
+			<div id="forceLogin">
+				<div class="center">
+					<h2 id="fLMessage" class="centerdMsg"></h2>
+				</div>
+			</div>
+			<div id="outerWrapper">
+				<php-outeroverlays />
+				<div style="grid-area: 1 / 1 / 2 / 2">
+					<php-outercontent />
+				</div>
+				<div id="contentWrapper" class="scroll-view">
+					<php-content />
+				</div>
+			</div>
+		</div>
+
+		<noscript>
+			<div class="nojs">JavaScript nicht aktiv!</div>
+		</noscript>
+		<!--Popups-->
+		<div class="scroll-view" id="dataPopup"></div>
+		<div id="sideNavClose" class="inv" onclick="toggleSideNav(false)"></div>
+		<div id="closingWall" class="inv" onclick="closeWindows()"></div>
+
+		<datalist id="schoolSuggestionBox">
+			<option value=""></option>
+		</datalist>
+		<div id="mainSideBar" class="side-nav" style="transform: translateX(100%)">
+			<a href="/overview/">Übersicht</a>
+			<a href="/table/">Stundenplan</a>
+			<a href="/browser/">Alle Stundenpläne</a>
+			<a href="/calendar/">Kalender</a>
+			<a href="/consultation/">Sprechstunden</a>
+			<a href="/absence/">Fehlstunden</a>
+			<a href="/settings/">Einstellungen</a>
+			<a href="/feedback/">Hilfe &amp; Feedback</a>
+			<a href="/donate/">Spenden und Helfen</a>
+			<a href="/tutorial/">Tutorial</a>
+			<div id="additionalLinks">
+				<php-additionalLinks />
+			</div>
+			<br />
+			<a href="/agb/">AGB</a>
+			<a href="/imprint/">Impressum</a>
+			<div></div>
+		</div>
+		<div id="console" style="display: none">
+			<div>
+				<button class="menu-button" id="consoleClose">Close</button>
+				<button class="menu-button" id="consoleToggle">Toggle</button>
+				<button class="menu-button" id="consoleCopy">Copy</button>
+				<button class="menu-button" id="consoleDownload">Download</button>
+			</div>
+			<mdev-console></mdev-console>
+			<mdev-input style="display: grid; grid-template-columns: auto 36px"></mdev-input>
+		</div>
+	</body>
+	<!--Scripts-->
+	<script async defer src="/JS/api/datalist-polyfill.min.js"></script>
+	<script src="/JS/api/jquery-3.5.1-slim.js"></script>
+	<script src="/JS/"></script>
+	<script>
+		var globalSettings = <php-settings />
+	</script>
+	<script defer src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+	<script defer src="https://www.gstatic.com/firebasejs/7.21.1/firebase-messaging.js"></script>
+	<script>
+		const firebaseConfig = {
+			apiKey: 'AIzaSyBuQPKxuSxya9ba3gl6qU6plz6KVnsK4us',
+			authDomain: 'jupiter-7b73a.firebaseapp.com',
+			databaseURL: 'https://jupiter-7b73a.firebaseio.com',
+			projectId: 'jupiter-7b73a',
+			storageBucket: 'jupiter-7b73a.appspot.com',
+			messagingSenderId: '292198005223',
+			appId: '1:292198005223:web:9cafc933ace259db99a542'
+		}
+
+		// Initialize Firebase Cloud Messaging
+		let fcm = new Promise(async (resolve) => {
+			await new Promise((resolve) => {
+				if (document.readyState != 'loading') return resolve()
+				document.addEventListener('DOMContentLoaded', function listener() {
+					document.removeEventListener('DOMContentLoaded', listener)
+					resolve()
+				})
+			})
+			firebase.initializeApp(firebaseConfig)
+			const swRegistration = await navigator.serviceWorker.ready
+			fcm = firebase.messaging()
+			fcm.useServiceWorker(swRegistration)
+			fcm.usePublicVapidKey('BKcLEao46pPkS5QLRwnkNYfI_DsGF0bd8DKDFj1X1RZVvdQHA9NjRrQBU84dHOs1aesELuW8xoNnC6xNdjJy9gU')
+			fcm.onMessage((payload) => {
+				if (!payload.notification) return
+				const {title, body, icon, badge, click_action} = payload.notification
+				if ('showNotification' in swRegistration) {
+					swRegistration.showNotification(title, {
+						body: body,
+						icon: icon || '/DATA/logo/logo256.png',
+						badge: badge || '/DATA/logo/logo192alpha.png',
+						data: {click_action: click_action}
+					})
+				} else {
+					const notification = new Notification(title, {
+						body: body,
+						icon: icon || '/DATA/logo/logo256.png',
+						badge: badge || '/DATA/logo/logo192alpha.png'
+					})
+					notification.onclick = () => {
+						window.focus()
+						if (click_action) {
+							window.location.replace(click_action)
+						}
+					}
+				}
+			})
+			resolve()
+		})
+	</script>
+	<php-scriptsend />
+</html>

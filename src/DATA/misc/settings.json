@@ -1,0 +1,118 @@
+{
+	"version": "1.0.1",
+	"sections": {
+		"Allgemein": ["homePage"],
+		"Aussehen": ["backgroundColor", "theme", "timeOverlayOpacity", "blackandwhite"],
+		"Bedienungshilfen": ["hideTimeCols", "hideEmptyDays", "autoFullscreen"],
+		"Benachrichtigungen": [
+			"notifications",
+			// "notificationsSchoolUpdate",
+			"notificationsSubscribedTimetable",
+			"notificationsAskForForeignTables"
+		],
+		"Entwicklereinstellungen": ["enableLog"]
+	},
+	"settings": {
+		"homePage": {
+			"name": "Startseite",
+			"type": "select",
+			"default": "",
+			"apply": "php",
+			"values": {
+				"": "Wilkommen",
+				"/overview/": "Übersicht",
+				"/table/": "Stundenplan",
+				"/browser/": "Alle Stundenpläne",
+				"/calendar/": "Kalender"
+			}
+		},
+		"backgroundColor": {
+			"name": "Hintergrund<wbr>frabe",
+			"default": "",
+			"type": "color",
+			"apply": "php"
+		},
+		"theme": {
+			"name": "Theme",
+			"type": "select",
+			"default": "",
+			"apply": "php",
+			"values": {
+				"": "Untis",
+				"dark": "Dunkel",
+				"blue": "Blau",
+				"christmas": "Weihnachten"
+			}
+		},
+		"timeOverlayOpacity": {
+			"name": "Vergangene Zeit Overlay Sichtbarkeit",
+			"default": "0.3",
+			"type": "range",
+			"apply": "php",
+			"values": {
+				"min": 0,
+				"max": 100,
+				"step": 1
+			},
+			"converters": {
+				"toData": "value /= 100.0",
+				"toValue": "data = Math.floor(data * 100)",
+				"toDisplay": "value+'%'"
+			}
+		},
+		"hideTimeCols": {
+			"name": "Sundenplan Zeitspalte bei kleinem Viewport ausblenden",
+			"type": "toggle",
+			"default": false,
+			"apply": "php"
+		},
+		"hideEmptyDays": {
+			"name": "Tage ohne Stunden ausblenden",
+			"type": "toggle",
+			"default": false,
+			"apply": "js"
+		},
+		"autoFullscreen": {
+			"name": "Im Vollbildmodus starten",
+			"type": "toggle",
+			"default": false,
+			"apply": "js"
+		},
+		"notifications": {
+			"name": "Benachrichtigungen",
+			"type": "toggle",
+			"default": false,
+			"apply": "js"
+		},
+		/* "notificationsSchoolUpdate": {
+            "name": "Benachrichtigung bei Schulweitem Update (pro acc einstellbar)",
+            "type": "toggle",
+            "default": false,
+            "apply": "ajax"
+        },*/
+		"notificationsSubscribedTimetable": {
+			"name": "Benachrichtigung bei Änderung dieses Stundenplans",
+			"type": "timetable",
+			"default": "",
+			"apply": "ajax"
+		},
+		"notificationsAskForForeignTables": {
+			"name": "Stundenpläne anderer mitabfragen",
+			"type": "toggle",
+			"default": true,
+			"apply": "ajax"
+		},
+		"blackandwhite": {
+			"name": "Schwarz-Weiß Modus",
+			"type": "toggle",
+			"default": false,
+			"apply": "php"
+		},
+		"enableLog": {
+			"name": "Log anzeigen",
+			"type": "toggle",
+			"default": false,
+			"apply": "php"
+		}
+	}
+}

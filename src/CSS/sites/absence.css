@@ -1,0 +1,76 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+#headline {
+	width: 100%;
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+#summary {
+	padding: 5px;
+	display: grid;
+	grid-template-columns: max-content max-content;
+	grid-column-gap: 5px;
+}
+
+.accordion > .checkbox {
+	margin-right: 5px;
+	box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.25);
+	margin-left: -2.5px;
+	display: none;
+}
+
+.list-text {
+	padding: 10px;
+}
+
+#downloadBtns > span:active,
+#downloadBtns > span:hover {
+	filter: invert(0.3);
+}
+
+#downloadCancel {
+	margin-right: 5px;
+}
+
+#downloadCancel,
+#downloadCommit,
+#downloadLink {
+	display: none;
+	background-color: transparent;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#downloadLink[data-ready='false'] {
+	animation: rotate;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+}
+
+#downloadLink[data-ready='true'] {
+	filter: invert(1);
+}
+
+@media only screen and (min-width: 600px) {
+	/*Anpassungen für PC*/
+	.list-text {
+		width: 46%;
+		margin-left: 2%;
+		margin-right: 2%;
+		display: inline-block;
+	}
+}

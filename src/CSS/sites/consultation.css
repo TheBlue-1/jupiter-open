@@ -1,0 +1,204 @@
+/**
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+:root {
+	--col-consultation-resultbox: #ddd;
+	--col-consultation-popup: var(--col-popup);
+	--col-consultation-emptyselect-text: var(--col-showytext-text);
+	--col-consultation-day: var(--col-panel);
+	--col-consultation-entry: #eee;
+	--col-consultation-time-text: #666;
+}
+
+select {
+	width: 100%;
+	text-overflow: ellipsis;
+}
+
+#grid {
+	width: 100%;
+	min-height: 100%;
+	max-width: 100%;
+	display: grid;
+	grid-auto-columns: 100%;
+	grid-template-areas: 'search' 'results' 'popup' 'reg-popup';
+	grid-row-gap: 20px;
+	grid-column-gap: 20px;
+}
+
+#searchGrid {
+	grid-area: search;
+	grid-template-columns: 1fr;
+	display: grid;
+	grid-row-gap: 5px;
+	grid-auto-rows: min-content;
+	padding: 2px;
+}
+
+#resultGrid {
+	display: grid;
+	grid-auto-columns: max-content;
+	grid-auto-flow: column;
+	grid-column-gap: 5px;
+	padding: 5px 5px;
+	grid-template-rows: minmax(max-content, 100%);
+	background-color: var(--col-consultation-resultbox);
+	visibility: hidden;
+	height: 100%;
+}
+
+#resultGrid > :last-child::after {
+	content: '';
+	position: relative;
+	width: calc(100% + 10px);
+	height: 1px;
+}
+
+#resultGridWrapper {
+	position: relative;
+	grid-area: results;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+#resultGrid::before {
+	content: '';
+	position: absolute;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) inset;
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) inset;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75) inset;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	left: 0;
+	top: 0;
+}
+
+#dateControls {
+	display: inline-flex;
+	position: relative;
+	margin: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#popupWrapper {
+	grid-area: popup;
+	display: flex;
+	justify-content: center;
+}
+
+#popup {
+	background-color: var(--col-consultation-popup);
+	display: grid;
+	grid-template-areas: 'day day' 'time time';
+	grid-template-columns: max-content max-content;
+	grid-auto-rows: max-content;
+	grid-column-gap: 10px;
+	padding: 20px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	margin: 5px;
+	grid-row-gap: 5px;
+	position: relative;
+	padding-bottom: 70px;
+}
+
+#regPopupWrapper {
+	grid-area: reg-popup;
+	display: flex;
+	justify-content: center;
+}
+
+#regPopup {
+	background-color: var(--col-consultation-popup);
+	display: grid;
+	grid-template-rows: max-content 1fr max-content max-content;
+	grid-column-gap: 10px;
+	padding: 20px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	margin: 5px;
+	grid-row-gap: 5px;
+	position: relative;
+}
+
+#regPopup > textarea {
+	width: 100%;
+	min-height: 51px;
+	min-width: 200px;
+}
+
+.date-button {
+	min-width: 17px;
+	min-height: 17px;
+}
+
+.empty-select {
+	color: var(--col-consultation-emptyselect-text);
+}
+
+.empty-select > option {
+	color: initial;
+}
+
+.day {
+	width: 100%;
+	display: inline-grid;
+	grid-auto-columns: 1fr;
+	grid-auto-flow: row;
+	grid-auto-rows: max-content;
+	padding: 5px;
+	font-size: 11pt;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	background-color: var(--col-consultation-day);
+	padding-bottom: 10px;
+}
+
+.entry {
+	background-color: var(--col-consultation-entry);
+	border-bottom: 1px solid gray;
+	margin-top: 7px;
+	padding: 3px;
+	font-size: 10pt;
+	font-weight: normal;
+	pointer-events: auto;
+	cursor: pointer;
+}
+
+.entry-available {
+	border-bottom: 1px solid #0f0;
+}
+
+.entry-unavailable {
+	border-bottom: 1px solid #f00;
+}
+
+.consultaion-time {
+	font-size: 7pt;
+	color: var(--col-consultation-time-text);
+}
+
+.teacher-name {
+	margin-bottom: 2px;
+}
+
+@media only screen and (min-width: 600px) {
+	#grid {
+		grid-template-areas: 'search popup reg-popup reg-popup' 'results results results results';
+		grid-template-rows: min-content minmax(200px, max-content);
+		grid-auto-columns: 1fr;
+	}
+	#regPopupWrapper {
+		justify-content: left;
+	}
+}

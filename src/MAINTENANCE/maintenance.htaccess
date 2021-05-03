@@ -1,0 +1,42 @@
+
+RewriteEngine on
+RewriteRule ^((?!^MAINTENANCE/index.php$).)*$ MAINTENANCE/index.php
+
+
+<IfModule mod_headers.c>
+    # Secure Cookies
+    Header always edit Set-Cookie (.*) "$1; Secure; HTTPOnly"
+    #Content-Security-Policy
+    Header set Content-Security-Policy: "default-src 'self';base-uri 'self';connect-src *;font-src 'self';form-action *;frame-ancestors 'self';frame-src *;img-src * data:;manifest-src 'self';media-src 'self' data:;object-src 'none';script-src * 'unsafe-inline' 'unsafe-eval';style-src * 'unsafe-inline';upgrade-insecure-requests;worker-src 'self'"
+    #Cache Control
+    Header set Cache-Control "no-cache, must-revalidate"
+    Header set Pragma "no-cache"
+    Header always edit Cache-Control (.*) "no-cache, must-revalidate"
+    Header always edit Pragma (.*) "no-cache"
+    #iframes verbieten
+    Header always set X-FRAME-OPTIONS "DENY"
+    #xxss
+    Header always set X-XSS-Protection "1; mode=block"
+    #autodetect off
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+#alles verbieten
+<Filesmatch "\..*$">
+    Require local
+</FilesMatch>
+
+
+
+
+#whitelist
+<FilesMatch "\.(ico|svg|mp3|mp4|png|gif|js|php|webmanifest|xml|ttf)$">
+    Require all granted
+</FilesMatch>
+<FilesMatch "^robots.txt$">
+    Require all granted
+</FilesMatch>
+<FilesMatch "^settings-v2.json$">
+    Require all granted
+</FilesMatch>
+

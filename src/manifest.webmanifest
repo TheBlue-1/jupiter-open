@@ -1,0 +1,62 @@
+{
+	"gcm_sender_id": "482941778795",
+	"gcm_sender_id_comment": "Do not change the GCM Sender ID",
+	"name": "Jupiter",
+	"description": "Eine performante und elegante Seite die Daten wie Stundenpläne, Fehlstunden und Termine von Untis präsentiert, aber auch viele eigene Features zur Verfügung stellt.",
+	"short_name": "Jupiter",
+	"theme_color": "#ff9800",
+	"background_color": "#ffffff",
+	"display": "standalone",
+	"lang": "de-DE",
+	"start_url": ".",
+	"permissions": {
+		"desktop-notification": {}
+	},
+	"icons": [
+		{
+			"src": "/DATA/logo/logo48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "/DATA/logo/logo72.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "/DATA/logo/logo96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "/DATA/logo/logo144.png",
+			"type": "image/png",
+			"sizes": "144x144"
+		},
+		{
+			"src": "/DATA/logo/logo168.png",
+			"type": "image/png",
+			"sizes": "168x168"
+		},
+		{
+			"src": "/DATA/logo/logo192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/DATA/logo/logo256.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "/DATA/logo/logo384.png",
+			"type": "image/png",
+			"sizes": "384x384"
+		},
+		{
+			"src": "/DATA/logo/logo512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	]
+}

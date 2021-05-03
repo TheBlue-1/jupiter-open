@@ -1,0 +1,189 @@
+{
+	"#error000": {
+		"code": "#error000",
+		"console": "Interner PHP Fehler: $0",
+		"user": "Interner Fehler"
+	},
+	"#error001": {
+		"code": "#error001",
+		"console": "Curl-Abfrage-Fehler",
+		"user": "Untis antwortet nicht!"
+	},
+	"#error002": {
+		"code": "#error002",
+		"console": "Login-Daten nicht korrekt!",
+		"user": "Bitte überprüfen Sie Ihre Login Daten"
+	},
+	"#error003": {
+		"code": "#error003",
+		"console": "SessionTimeout",
+		"user": "Die Sitzung ist abgelaufen"
+	},
+	"#error004": {
+		"code": "#error004",
+		"console": "Kein korrekter type übergeben!",
+		"user": "Interner Fehler"
+	},
+	"#error005": {
+		"code": "#error005",
+		"console": "Verbindung zur Datenbank fehlgeschlagen!",
+		"user": "Verbindung Fehlgeschalgen.<br>Versuchen Sie es Später erneut."
+	},
+	"#error006": {
+		"code": "#error006",
+		"console": "$0 nicht gesetzt!(SESSION) (heißt diese abfrage hätte nicht gemacht werden dürfen weil keiner eingeloggt is oder wegen php bug)",
+		"user": ""
+	},
+	"#error007": {
+		"code": "#error007",
+		"console": "Benutzeraccount blockiert!",
+		"user": "Ihr Account wurde von Untis blockiert"
+	},
+	"#error008": {
+		"code": "#error008",
+		"console": "MultiPostParam $0 hat zu wenig werte",
+		"user": "Interner Fehler"
+	},
+	"#error009": {
+		"code": "#error009",
+		"console": "getType nicht korrekt!",
+		"user": "Interner Fehler"
+	},
+	"#error010": {
+		"code": "#error010",
+		"console": "'$0' nicht gesetzt!(POST)",
+		"user": "Interner Fehler"
+	},
+	"#error011": {
+		"code": "#error011",
+		"console": "Ungültige SchulInfoAbfrage",
+		"user": "Interner Fehler"
+	},
+	"#error012": {
+		"code": "#error012",
+		"console": "untis 500",
+		"user": "Fehler bei Untis vermutet"
+	},
+	"#error013": {
+		"code": "#error013",
+		"console": "untis 403",
+		"user": ""
+	},
+	"#error014": {
+		"code": "#error014",
+		"console": "Untis antwortet mit responsecode $0",
+		"user": "Unerwartete antwort von Untis"
+	},
+	"#error015": {
+		"code": "#error015",
+		"console": "Relogin fehlgeschlagen",
+		"user": "UNTIS IS DUMM UND NERVT MICH EXTREM!!!"
+	},
+	"#error016": {
+		"code": "#error016",
+		"console": "Login nicht mehr korrekt!",
+		"user": "Login-Daten abgelaufen"
+	},
+	"#error017": {
+		"code": "#error017",
+		"console": "Unerwarteter Fehler bei Datenbank!",
+		"user": "Interner Fehler"
+	},
+	"#error018": {
+		"code": "#error018",
+		"console": "Fehlerhaftes Statement!",
+		"user": "Interner Fehler"
+	},
+	"#error019": {
+		"code": "#error019",
+		"console": "Datenbank Parametertest Fehlgeschlagen: $0 (a ungültige länge,b nicht gesetzt,c unerlaubte zeichen)",
+		"user": "Interner Fehler"
+	},
+	"#error020": {
+		"code": "#error020",
+		"console": "Kein employee",
+		"user": "Nicht berechtigt!"
+	},
+	"#error021": {
+		"code": "#error021",
+		"console": "Spamschutz ausgelöst",
+		"user": "Du kannst pro Minute nur zwei Nachrichten senden"
+	},
+	"#error022": {
+		"code": "#error022",
+		"console": "maximale eigene events erreicht",
+		"user": "Zu viele persönliche Events erstellt"
+	},
+	"#error023": {
+		"code": "#error023",
+		"console": "fehlerhafte EventData Abfrage",
+		"user": "Interner Fehler"
+	},
+	"#error024": {
+		"code": "#error024",
+		"console": "Untis Wartung",
+		"user": "Untis Wartung"
+	},
+	"#error025": {
+		"code": "#error025",
+		"console": "Nicht berechtigt!",
+		"user": "Nicht berechtigt!"
+	},
+	"#error026": {
+		"code": "#error026",
+		"console": "kein user für tablechange notification gefunden",
+		"user": ""
+	},
+	"#error027": {
+		"code": "#error027",
+		"console": "Untis sagt userid=-1",
+		"user": "Interner Fehler"
+	},
+	"#error028": {
+		"code": "#error028",
+		"console": "stundenplan noch nicht freigeschalten",
+		"user": "Der Stundenplan wurde noch nicht freigeschalten"
+	},
+	"#error029": {
+		"code": "#error029",
+		"console": "login nicht gespeichert",
+		"user": ""
+	},
+	"#error123": {
+		"code": "#error123",
+		"console": "php nicht fertig, anfrage vermutlich korrekt",
+		"user": "Please hold the Line, Nothing will happen"
+	},
+	"#error999": {
+		"code": "#error999",
+		"console": "Unbekannter Fehlercode $0",
+		"user": "Interner Fehler"
+	},
+	"jsonParse": {
+		"console": "JSON Daten konnten nicht geparsed werden! Daten: $0",
+		"user": "Interner Fehler"
+	},
+	"invalidData": {
+		"console": "Die Daten sind invalid! Daten: $0",
+		"user": "Interner Fehler"
+	},
+	"invalidCache": {
+		"console": "Die gecachten Daten sind invalid! Daten: $0",
+		"user": "Interner Fehler"
+	},
+	"#warning000": {
+		"code": "warning000",
+		"console": "Interne PHP Warnung: $0",
+		"user": "Interner Fehler"
+	},
+	"#warning001": {
+		"code": "warning001",
+		"console": "Daten ohne Account nicht verfügbar",
+		"user": "Gewisse Daten sind für Sie nicht verfügbar"
+	},
+	"#warning002": {
+		"code": "warning002",
+		"console": "Abfrage nach $0, aber die gibts nicht!",
+		"user": "Interner Fehler"
+	}
+}

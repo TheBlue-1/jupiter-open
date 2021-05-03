@@ -1,0 +1,172 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Übersicht: Hier kannst du alle Infos auf einen Blick sehen
+<php-metas />
+<meta property="og:title" content="Übersicht: Hier kannst du alle Infos auf einen Blick sehen" />
+<meta property="og:url" content="/overview/" />
+<meta
+	property="og:description"
+	content="Schau dir einige Informationen über deine Schule im simplen Design der neuen WebUntis Alternative Jupiter an. Bestimme selbst was du in der Übersicht siehst."
+/>
+<meta name="keywords" content="Übersicht,Schule,Informationen,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Schau dir einige Informationen über deine Schule im simplen Design der neuen WebUntis Alternative Jupiter an. Bestimme selbst was du in der Übersicht siehst."
+/>
+<php-useapistylesheets />dragula.min|
+<php-outeroverlays />
+
+<div id="alwaysOnOverlay" style="display: none" onclick="toggleAlwaysOn()">
+	<span id="batteryIcon">
+		<span id="batteryLevelPercent"></span>
+		<span id="batteryLevel"></span>
+		<span id="chargingIcon" class="charging-icon" style="display: none"></span>
+	</span>
+	<div id="alwaysOnContent">
+		<p id="alwaysOnClock">24:00</p>
+		<p id="alwaysOnTimeLeft"></p>
+	</div>
+</div>
+<php-outercontent />
+<label id="boxEditBtn" title="Boxen Verschieben" onchange="toggleBoxEditMode(event)" class="menu-button" style="height: 36px">
+	<input autocomplete="off" type="checkbox" />
+	<span class="edit-icon" title="Panels bearbeiten"></span>
+</label>
+<php-content />
+<div id="panels">
+	<div id="col1" class="panel-column"></div>
+	<div id="col2" class="panel-column"></div>
+	<div id="col3" class="panel-column"></div>
+	<div id="col4" class="panel-column"></div>
+	<div id="col5" class="panel-column"></div>
+	<div id="col6" class="panel-column"></div>
+	<div id="col7" class="panel-column"></div>
+	<div id="col8" class="panel-column"></div>
+</div>
+<div id="hiddenPanels">
+	<div class="center">
+		<p>Hier ablegen zum verstecken</p>
+	</div>
+</div>
+<div id="boxes">
+	<div class="box-wrapper" data-index="0">
+		<div class="box">
+			<div class="drag-handle"></div>
+			<!-- AddToAny BEGIN -->
+			<div class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url="https://yptr.ml/" data-a2a-title="Jupiter Stundenpläne: ">
+				<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+				<a class="a2a_button_facebook"></a>
+				<a class="a2a_button_twitter"></a>
+				<a class="a2a_button_whatsapp"></a>
+			</div>
+			<!-- AddToAny END -->
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="1">
+		<div class="box" id="nextLesson">
+			<div class="drag-handle"></div>
+			<h4>Nächste Stunde:</h4>
+			<p><b>In: </b><span id="nextLessonDown">-</span></p>
+			<div id="nextLessonData"></div>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="2">
+		<div class="box" id="currentLesson">
+			<div class="drag-handle"></div>
+			<h4>
+				Jetzt:
+				<button style="background-color: transparent; float: right" onclick="toggleAlwaysOn()">
+					<span class="fullscreen-icon" style="width: 17px; height: 17px" title="AlwaysOn starten"></span>
+				</button>
+			</h4>
+			<p><b>Noch: </b><span id="currentLessonDown">-</span></p>
+			<p><b>Seit: </b><span id="currentLessonUp">-</span></p>
+			<div id="currentLessonData"></div>
+			<div id="currentLessonProgressWrapper">
+				<div id="currentLessonProgress"></div>
+			</div>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="3">
+		<div class="box" id="homeworks">
+			<div class="drag-handle"></div>
+			<h4>Hausübungen:</h4>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="4">
+		<div class="box" id="absence">
+			<div class="drag-handle"></div>
+			<h4>Fehlstunden:</h4>
+			<a href="/absence/">
+				<p class="list-text absence-grid">
+					<b class="absence-grid-header">Letzte Woche:</b> <b class="absence-grid-header">Gesamt: </b><span id="lastWeekTotalAbsence1">-</span
+					><span id="lastWeekTotalAbsence2">-</span><b>│</b><span id="lastWeekTotalAbsence3">-</span> <b class="absence-grid-header"> Unentschuldigt: </b
+					><span id="lastWeekAbsence1">-</span><span id="lastWeekAbsence2">-</span><b>│</b><span id="lastWeekAbsence3">-</span>
+				</p>
+				<p class="list-text absence-grid">
+					<b class="absence-grid-header">Letzter Monat:</b> <b class="absence-grid-header">Gesamt: </b><span id="lastMonthTotalAbsence1">-</span
+					><span id="lastMonthTotalAbsence2">-</span><b>│</b><span id="lastMonthTotalAbsence3">-</span> <b class="absence-grid-header">Unentschuldigt: </b
+					><span id="lastMonthAbsence1">-</span><span id="lastMonthAbsence2">-</span><b>│</b><span id="lastMonthAbsence3">-</span>
+				</p>
+			</a>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="5">
+		<div class="box" id="savedTables">
+			<div class="drag-handle"></div>
+			<h4>Gespeicherte Stundenpläne:</h4>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="6">
+		<div class="box" id="exams">
+			<div class="drag-handle"></div>
+			<h4>Prüfungen:</h4>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="7">
+		<div class="box" id="updateNews">
+			<div class="drag-handle"></div>
+			<h4>Neuerungen:</h4>
+
+			<a href="/versionhistory/">mehr</a>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="8">
+		<div class="box" id="roles">
+			<div class="drag-handle"></div>
+			<h4>Klassendienste:</h4>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="9">
+		<div class="box" id="schoolInfo">
+			<div class="drag-handle"></div>
+			<h4>Schulnachricht:</h4>
+		</div>
+	</div>
+	<div class="box-wrapper" data-index="10">
+		<div class="box" id="systemInfo">
+			<div class="drag-handle"></div>
+			<h4>Systemnachricht:</h4>
+		</div>
+	</div>
+	<div id="appInstall" class="box-wrapper" data-index="11">
+		<div class="box">
+			<div class="drag-handle"></div>
+			<button id="installBtn" style="width: 100%; text-align: left" class="menu-button disabled" onclick="install()">Als App installieren</button>
+		</div>
+	</div>
+</div>
+<php-scripts />
+<script src="/JS/api/dragula.min.js"></script>
+<script src="/JS/sites/overview.js"></script>
+<script>
+	var a2a_config = a2a_config || {}
+	a2a_config.onclick = 1
+	a2a_config.locale = 'de'
+</script>
+<script async defer src="https://static.addtoany.com/menu/page.js"></script>
+<script async defer src="/JS/api/no-sleep.js"></script>

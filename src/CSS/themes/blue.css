@@ -1,0 +1,16 @@
+:root {
+	--col-theme: #3147c7;
+	--col-button: var(--col-theme);
+	--col-button-hover: var(--col-theme);
+	--col-input-deco: var(--col-theme);
+	--col-ooo-text: var(--col-theme);
+	--col-loader: var(--col-theme);
+	--col-button-text: white;
+	--col-link: #12538b;
+	--col-link-hover: #0e4583;
+	--col-description-text: white;
+	--col-sidenav: #5274e4e1;
+	--col-nav: #5274e4;
+	--col-overview-dragbar: #0e2035;
+	--col-input: #ffffff;
+}

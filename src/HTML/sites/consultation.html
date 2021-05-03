@@ -1,0 +1,47 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Sprechstunden: Hier siehst du wann deine Lehrer Zeit haben
+<php-metas />
+<meta property="og:title" content="Sprechstunden: Hier siehst du wann deine Lehrer Zeit haben" />
+<meta property="og:url" content="/consultation/" />
+<meta
+	property="og:description"
+	content="Sieh dir im simplen Design der neuen WebUntis Alternative Jupiter an, wann deine Lehrer Sprechstunden haben und melde dich gleich für einen Termin an."
+/>
+<meta name="keywords" content="Sprechstunde,Termin,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Sieh dir im simplen Design der neuen WebUntis Alternative Jupiter an, wann deine Lehrer Sprechstunden haben und melde dich gleich für einen Termin an."
+/>
+<php-outercontent />
+<php-content />
+<div id="grid">
+	<form id="searchGrid">
+		<b>Von: </b><input id="startDateInput" type="date" required onchange="dateInput('start')" /> <b>Bis: </b
+		><input id="endDateInput" type="date" required onchange="dateInput('end')" />
+		<b>Klasse: </b>
+		<select class="empty-select" id="classInput" required oninput="onClassInput(this)">
+			<option value="" selected>Klasse</option>
+		</select>
+		<b>Lehrer: </b>
+		<select class="empty-select" id="teacherInput" oninput="onTeacherInput(this)">
+			<option value="" selected>Lehrer (optional)</option>
+		</select>
+		<button class="menu-button" type="button" onclick="searchConsultations()">Suchen</button>
+	</form>
+	<div id="popupWrapper">
+		<div id="popup" style="display: none"></div>
+	</div>
+	<div id="regPopupWrapper">
+		<div id="regPopup" style="display: none"></div>
+	</div>
+	<div id="resultGridWrapper">
+		<div id="resultGrid" class="scroll-view"></div>
+	</div>
+</div>
+<php-scripts />
+<script src="/JS/sites/consultation.js"></script>

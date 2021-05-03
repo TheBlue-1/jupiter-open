@@ -1,0 +1,21 @@
+:root {
+	--col-welcome-news: #f8f8f8;
+}
+
+#updateNews {
+	width: calc(100% - 10px);
+	margin: 5px;
+	padding: 5px;
+	background-color: var(--col-welcome-news);
+	min-height: 50px;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.5);
+}
+
+.a2a_overlay,
+.a2apage_modal,
+.a2a_menu a2a_full div,
+.a2a_localize div {
+	pointer-events: auto;
+}

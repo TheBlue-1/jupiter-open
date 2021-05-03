@@ -1,0 +1,102 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Feedback: Sag uns was wir besser machen sollen!
+<php-metas />
+<meta property="og:title" content="Feedback: Sag uns was wir besser machen sollen!" />
+<meta property="og:url" content="/feedback/" />
+<meta
+	property="og:description"
+	content="Gib uns Feedback! Wir freuen uns über deine Vorschläge zur Verbesserung der neuen WebUntis Alternative Jupiter. Schreib uns auch wenn du Hilfe brauchst."
+/>
+<meta name="keywords" content="Feedback,Vorschlag,Verbesserung,Hilfe,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Gib uns Feedback! Wir freuen uns über deine Vorschläge zur Verbesserung der neuen WebUntis Alternative Jupiter. Schreib uns auch wenn du Hilfe brauchst."
+/>
+<php-outercontent />
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<php-content />
+<h2 class="wrap">Problem melden</h2>
+
+<p style="margin: 20px 10px">
+	<b>Bevor Sie ein Problem melden <u>deaktivieren</u> Sie bitte Ihren <u>Ad-Blocker</u>. Wir zeigen keine Werbung aber Ad-Blocker verursachen leider Probleme.</b>
+</p>
+
+<form id="problemForm">
+	<p>Typ auswählen:</p>
+	<div class="indent">
+		<input required name="problemType" value="login" id="problemTypeLogin" type="radio" />
+		<label for="problemTypeLogin">Ich kann mich nicht anmelden</label>
+		<br />
+		<input required name="problemType" value="other" id="problemTypeOther" type="radio" />
+		<label for="problemTypeOther">Anderes</label>
+		<br />
+	</div>
+	<textarea id="problemBox" required style="width: 100%" rows="3" name="problemMsg" form="problemForm" placeholder="Beschreibe dein Problem"></textarea>
+	<br />
+	<div class="g-recaptcha" data-callback="verifyCallback" data-sitekey="6Lf2pGkUAAAAAF6dhU_Qh4wtLPvhui9gLB4AswBZ"></div>
+	<input
+		id="emailIn"
+		type="email"
+		autocomplete="email"
+		autocorrect="off"
+		autocapitalize="off"
+		spellcheck="false"
+		placeholder="Rückmeldungs E-Mail Adresse"
+		title="E-Mail Adresse für Rückmeldungen"
+	/>
+	<br />
+	<br />
+	<button onmouseup="sendProblem('problemForm')" type="button" class="menu-button">Absenden</button>
+</form>
+<br />
+<h2 class="wrap">Verbesserungsvorschläge</h2>
+<form id="suggestionForm">
+	<textarea
+		disabled
+		id="suggestionBox"
+		required
+		style="width: 100%"
+		rows="3"
+		name="suggestionMsg"
+		form="suggestionForm"
+		placeholder="Du musst dich anmelden um Verbesserungsvorschläge zu machen"
+	></textarea>
+	<br />
+	<div class="g-recaptcha" data-callback="verifyCallback" data-sitekey="6Lf2pGkUAAAAAF6dhU_Qh4wtLPvhui9gLB4AswBZ"></div>
+	<br />
+	<button onmouseup="sendSuggestion('suggestionForm')" type="button" class="menu-button">Absenden</button>
+</form>
+<br />
+<hr />
+<br />
+<h2>FAQ</h2>
+<ul>
+	<li>
+		<h4>Wieso kann ich IE nicht verwenden?</h4>
+		<p>Weil Internet Explorer einige unserer Features nicht unterstützt und dadurch Fehler auftreten würden.</p>
+	</li>
+</ul>
+<br />
+<h3 class="wrap">Datenschutz</h3>
+<ul>
+	<li>
+		<h4>Wie werden meine Logindaten bei "Logindaten speichern" gespeichert?</h4>
+		<p>Dein Passwort wird sicher verschlüsselt, userseitig gespeichert und bei Bedarf entschlüsselt.</p>
+	</li>
+	<li>
+		<h4>Ich kann die Namen von jedem Schüler in meiner Schule sehen, verstößt das nicht gegen Datenschutzgesetzte?</h4>
+		<span>Für den Schutz solcher Daten ist </span><a href="https://www.untis.at/HTML/kontakt.php">Untis GmbH</a
+		><span> verantwortlich. Wenden Sie sich für weitere Details bitte an <a href="mailto:datenschutz@untis.at">datenschutz@untis.at</a></span>
+	</li>
+</ul>
+<br />
+<hr />
+<br />
+<button onclick="clearCache()" class="menu-button">Cache Aktualisieren</button>
+<php-scripts />
+<script src="/JS/sites/feedback.js"></script>

@@ -1,0 +1,208 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+:root {
+	--col-calendar-day: var(--col-panel);
+	--col-calendar-today: hsla(208, 100%, 95%, 1);
+	--col-calendar-addbtn: lightgray;
+	--col-calendar-event-text: black;
+	--const-col-calendar-event-custom: #ff6666;
+	--const-col-calendar-event-exam: #e6d600;
+	--const-col-calendar-event-homework: #6979b5;
+	--const-col-calendar-event-holiday: #a2d8f4;
+	--const-col-calendar-event-role: #8fae50;
+}
+
+.weekday-name {
+	grid-row: 2 / span 1;
+	grid-template-columns: 1fr;
+	text-align: center;
+	font-size: 10pt;
+}
+
+.day {
+	pointer-events: auto;
+	text-align: center;
+	background-color: var(--col-calendar-day);
+	margin: 1px;
+	padding: 5px;
+	overflow-x: hidden;
+	pointer-events: auto;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
+	margin: 1px;
+	position: relative;
+}
+
+.day > p {
+	font-size: 13px;
+	text-align: left;
+}
+
+.add-event-button {
+	background-color: var(--col-calendar-addbtn);
+	position: absolute;
+	height: 17px;
+	width: 17px;
+	top: 0;
+	right: 0;
+	margin-top: 3px;
+	margin-right: 3px;
+}
+
+.day-index {
+	margin-bottom: 2px;
+}
+
+#days > :nth-child(7n + 6),
+#days > :nth-child(7n + 7) {
+	background-color: hsl(36, 100%, 95%);
+}
+
+.today {
+	background-color: var(--col-calendar-today) !important;
+}
+
+.past-future-day {
+	visibility: hidden;
+}
+
+.event {
+	width: 100%;
+	max-width: 100%;
+	border-radius: 9999px;
+	font-size: 10px;
+	color: var(--col-calendar-event-text);
+	padding: 2px;
+	white-space: nowrap;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	pointer-events: auto;
+}
+
+.add-event-span {
+	display: inline-block;
+	color: var(--col-button-text);
+}
+
+.event + .event {
+	margin-top: 2px;
+}
+
+.event-custom {
+	background-color: var(--const-col-calendar-event-custom);
+}
+
+.event-custom-disguise {
+	border-right: 5px solid;
+	border-color: var(--const-col-calendar-event-custom);
+}
+
+.event-exam {
+	background-color: var(--const-col-calendar-event-exam);
+}
+
+.event-homework {
+	background-color: var(--const-col-calendar-event-homework);
+}
+
+.event-role {
+	background-color: var(--const-col-calendar-event-role);
+}
+
+.event-holiday {
+	background-color: var(--const-col-calendar-event-holiday);
+}
+
+.event-popup-text {
+	font-size: 10pt;
+	padding-bottom: 3px /*!important*/;
+	white-space: pre;
+}
+
+#newEventForm {
+	display: grid;
+	grid-template-areas: 'title title' '. .' 'wholeDay wholeDay' '. .' '. .' '. .' '. .' 'text text' '. confirmButton';
+	grid-row-gap: 5px;
+}
+
+#calendarWrapper {
+	display: grid;
+	width: 100%;
+	height: 100%;
+	pointer-events: auto;
+	grid-template-areas: 'month month month month month month month' 'names names names names names names names' 'days days days days days days days' 'days days days days days days days' 'days days days days days days days' 'days days days days days days days' 'days days days days days days days' 'days days days days days days days';
+	grid-template-rows: min-content 17px repeat(6, 1fr);
+}
+
+#days {
+	grid-area: days;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	grid-auto-rows: minmax(min-content, 1fr);
+	overflow-y: auto;
+	position: relative;
+	pointer-events: auto;
+}
+
+#names {
+	grid-area: names;
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+}
+
+#monthName {
+	grid-area: month;
+	text-align: center;
+	font-weight: bold;
+	margin-top: 5px;
+	font-size: 14pt;
+}
+
+#dateControls {
+	display: inline-flex;
+	position: relative;
+	margin: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#dateInput {
+	height: 27px;
+}
+
+#title {
+	display: inline;
+}
+
+#popupGrid {
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	grid-column-gap: 5px;
+}
+
+#newEventDescription {
+	height: 5em;
+}
+
+#popupGrid p {
+	white-space: normal;
+}
+
+#popupGrid > :nth-child(odd) {
+	font-size: 11pt;
+	padding-bottom: 4px;
+	font-weight: bold;
+}
+
+@media only screen and (min-width: 500px) {
+	.day {
+		margin: 2.5px;
+	}
+}

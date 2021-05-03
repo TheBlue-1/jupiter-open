@@ -1,0 +1,45 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Kalender: Hier kannst du deine Schul-Termine sehen
+<php-metas />
+<meta property="og:title" content="Kalender: Hier kannst du deine Schul-Termine sehen" />
+<meta property="og:url" content="/calendar/" />
+<meta
+	property="og:description"
+	content="Sieh dir Termine, Prüfungen, Hausübungen, Ferien und Dienste im Kalender mit dem simplen Design der neuen WebUntis Alternative Jupiter an."
+/>
+<meta name="keywords" content="Termin,Kalender,Prüfung,Hausübung,Ferien,Klassendienst,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Sieh dir Termine, Prüfungen, Hausübungen, Ferien und Klassendienste im Kalender mit dem simplen Design der neuen WebUntis Alternative Jupiter an."
+/>
+<php-outeroverlays />
+<!--<div id="contentShadow"></div>-->
+<php-outercontent />
+<h3 id="title"></h3>
+<div id="dateControls">
+	<button class="date-button" title="letzter Monat" onclick="changeMonth(-1)">◄</button>
+	<input aria-label="Date Input" type="date" id="dateInput" onchange="changeDate(this);" />
+	<button class="date-button" title="nächster Monat" onclick="changeMonth(1)">►</button>
+</div>
+<php-content />
+<div id="calendarWrapper">
+	<p id="monthName"></p>
+	<div id="names">
+		<p class="weekday-name">Mo.</p>
+		<p class="weekday-name">Di.</p>
+		<p class="weekday-name">Mi.</p>
+		<p class="weekday-name">Do.</p>
+		<p class="weekday-name">Fr.</p>
+		<p class="weekday-name">Sa.</p>
+		<p class="weekday-name">So.</p>
+	</div>
+	<div id="days"></div>
+</div>
+<php-scripts />
+<script src="/JS/sites/calendar.js"></script>
+<script src="/JS/api/touchwipe.min.js"></script>

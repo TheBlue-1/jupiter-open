@@ -1,0 +1,353 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+/*
+    KLASSEN
+*/
+
+:root {
+	--col-table-zoomcontrols-text: var(--col-headings);
+	--col-table-lesson-text: black;
+	--col-table-break-text: #444;
+	--col-table-break: #ddd;
+	--col-table-nodata-text: gray;
+	--col-table-overlay-text: var(--col-headings);
+	--col-table-zoomcontrols: #fff;
+	--col-table-table: var(--col-background);
+	/*constants*/
+	--const-col-table-stanardcell: #f1f1f1;
+	--const-col-table-eventcell: #9cba21;
+	--const-col-table-examcell: #ffea4d;
+	--const-col-table-cancelledcell: #d1d1d1;
+	--const-col-table-shiftcell: #c595ef;
+	--const-col-table-substitutioncell: #c595ef;
+	--const-col-table-additionalcell: #c595ef;
+	--const-col-table-roomsubstitutioncell: #7083d2;
+	--const-col-table-freecell: #5ab8e7;
+	--const-col-table-officehourcell: #f6b655;
+	--const-col-table-notstanardcell: #ff902e;
+}
+
+.exam-cell {
+	background-color: var(--const-col-table-examcell);
+}
+
+.standard-cell {
+	background-color: var(--const-col-table-stanardcell);
+}
+
+.not-standard-cell {
+	background-color: var(--const-col-table-notstanardcell);
+}
+
+.event-cell {
+	background-color: var(--const-col-table-eventcell);
+}
+
+.cancelled-cell {
+	background-color: var(--const-col-table-cancelledcell);
+	text-decoration: line-through;
+	text-decoration-color: red;
+}
+
+.shift-cell {
+	background-color: var(--const-col-table-shiftcell);
+}
+
+.substitution-cell {
+	background-color: var(--const-col-table-substitutioncell);
+}
+
+.additional-cell {
+	background-color: var(--const-col-table-additionalcell);
+}
+
+.free-cell {
+	background-color: var(--const-col-table-freecell);
+	text-decoration: line-through;
+	text-decoration-color: red;
+}
+
+.room-substitution-cell {
+	background-color: var(--const-col-table-roomsubstitutioncell);
+}
+
+.office-hour-cell {
+	background-color: var(--const-col-table-officehourcell);
+}
+
+.grid-box {
+	grid-auto-flow: column dense;
+	display: grid;
+	grid-auto-rows: 1fr;
+	grid-auto-columns: 1fr;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+
+.holiday {
+	position: relative;
+	background: var(--const-col-table-freecell);
+}
+
+.holiday-text {
+	transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	white-space: nowrap;
+}
+
+.lesson {
+	font-size: 7pt;
+	overflow: hidden;
+	border: 1px solid #0001;
+	display: inline-block;
+	pointer-events: auto;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	box-shadow: 2px 3px 3px 0px #00000029;
+}
+
+.lesson:hover {
+	cursor: pointer;
+}
+
+.lesson-text-wrapper {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.lesson-text {
+	padding-left: 2px;
+	padding-right: 2px;
+	display: block;
+	text-align: left;
+	color: var(--col-table-lesson-text);
+}
+
+.lesson-break {
+	font-size: 7pt;
+	height: 7pt;
+	background-color: var(--col-table-break);
+	color: var(--col-table-break-text);
+	text-align: left;
+	grid-column: 1 / -1;
+	margin-top: 6px;
+	margin-bottom: 2px;
+}
+
+.day-text {
+	text-align: center;
+	font-size: 11pt;
+	padding: 2px;
+}
+
+.day-text-month {
+	font-size: 8pt;
+	color: gray;
+}
+
+.day-text-day {
+	font-size: 8pt;
+	color: gray;
+}
+
+.time-text {
+	font-size: 7pt;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.time-text-period {
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.time-wrapper {
+	position: relative;
+	min-height: 2em;
+	min-width: 25px;
+	display: initial;
+}
+
+.time-overlay {
+	position: absolute;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.3);
+	grid-row: 2;
+	width: 100%;
+}
+
+.lesson-popup-text {
+	font-size: 11pt;
+	padding-bottom: 4px;
+	font-weight: bold;
+}
+
+.lesson-popup-link {
+	color: var(--col-link);
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.lesson-popup-link:hover,
+.lesson-popup-link:focus {
+	color: var(--col-link-hover);
+}
+
+/*
+    IDs
+*/
+
+#dataDate {
+	position: absolute;
+	right: 5px;
+	bottom: 0;
+	opacity: 0.75;
+	font-size: 7pt;
+}
+
+#noData > *,
+#notAvaiable > * {
+	color: var(--col-table-nodata-text);
+	font-size: 15pt;
+	text-align: center;
+	width: 150%;
+}
+
+#dateControls {
+	display: inline-flex;
+}
+
+#displayedDaysControls {
+	height: 27px;
+	display: inline-flex;
+	align-items: center;
+}
+
+#displayedDaysControls::after {
+	content: 'Tag(e)';
+	font-size: 10pt;
+}
+
+#displayedDaysControls > input {
+	display: inline-block;
+	height: 100%;
+	width: 3em;
+}
+
+#zoomControls {
+	position: absolute;
+	top: 0;
+	display: block;
+	right: 20px;
+	visibility: hidden;
+	background-color: var(--col-table-zoomcontrols);
+	margin: 3px;
+	padding: 5px;
+	opacity: 0.25;
+	border-radius: 10px;
+	pointer-events: auto;
+	color: var(--col-table-zoomcontrols-text);
+}
+
+#zoomControls:hover {
+	opacity: 1;
+}
+
+#timeTable {
+	position: relative;
+	background-color: var(--col-table-table);
+	display: grid;
+	grid-gap: 0px;
+	grid-template-columns: min-content;
+	min-height: 100%;
+	padding-bottom: 5px;
+	transform-origin: top left;
+}
+
+#timeHeader {
+	grid-area: 0 / 0 / 1 / 1;
+}
+
+#tableWrapper {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	pointer-events: auto;
+	will-change: transform;
+}
+
+#tableScroll {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: auto;
+	pointer-events: initial;
+	box-shadow: 0px 0px 50px 20px rgba(0, 0, 0, 0.5);
+}
+
+#dateInput {
+	height: 27px;
+}
+
+#currentTimeOverlay {
+	text-shadow: 1px 0px 1px #0008, 1px 1px 1px #0008, 0px 1px 1px #0008, -1px 0px 1px #0008, -1px -1px 1px #0008, 0px -1px 1px #0008;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: left;
+	padding: 2px;
+	border-bottom: black solid 2px;
+}
+
+#timeOverlayTime {
+	font-size: 7pt;
+	color: var(--col-table-overlay-text);
+	position: absolute;
+	bottom: 0;
+}
+
+#toolBar {
+	height: 27.5px;
+	width: 100%;
+	text-align: right;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+}
+
+#popupGrid {
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	grid-template-areas: 'date date' 'time time';
+	grid-column-gap: 5px;
+}
+
+@media only screen and (min-width: 600px) {
+	/*Anpassungen für PC*/
+	.lesson-text {
+		word-break: break-all;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 400px) {
+	.time-text {
+		white-space: nowrap;
+	}
+	.time-wrapper {
+		display: block;
+	}
+}

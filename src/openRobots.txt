@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /CSS/
+Disallow: /DATA/
+Disallow: /HTML/
+Disallow: /ICON/
+Disallow: /JS/
+Disallow: /PHP/
+Disallow: /review/
+Disallow: /secret/
+Disallow: /errorlist.txt
+Allow: /DATA/sitemap.xml

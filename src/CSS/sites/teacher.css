@@ -1,0 +1,27 @@
+:root {
+	--col-teacher-block: var(--col-popup);
+}
+
+.admin-block {
+	background-color: var(--col-teacher-block);
+	padding: 7.5px;
+	margin: 5px 5px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.admin-block li > span {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.classBox {
+	display: inline-block;
+	margin-bottom: 7.5px;
+}
+
+.classBox > :not(h4) {
+	margin-left: 2em;
+}

@@ -1,0 +1,369 @@
+/*
+ * Copyright ©2018
+ * Written by:
+ * Maximilian Mayrhofer
+ * Wendelin Muth
+ */
+
+:root {
+	--col-overview-box: var(--col-panel);
+	--col-overview-dragbar: #444;
+	--col-overview-paneledit: var(--col-background);
+	--col-overview-alwayson-text: var(--col-headings);
+	--col-overview-hiddenpanels: #aaa;
+}
+
+h4 {
+	font-size: 1.1em;
+	margin-bottom: 3px;
+}
+
+.box {
+	display: inline-block;
+	padding: 10px;
+	padding-top: 30px;
+	background-color: var(--col-overview-box);
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.25);
+	vertical-align: top;
+	min-height: 60px;
+	position: relative;
+	width: 100%;
+}
+
+.panel-column {
+	border-width: inherit;
+	pointer-events: auto;
+	padding-top: 15px;
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid;
+}
+
+.panel-column:empty {
+	padding-top: 0px;
+}
+
+.panel-column-edit {
+	border: 2px solid lightgray;
+	margin: 5px;
+	padding: 5px;
+}
+
+.panel-column-edit:empty {
+	min-height: 50px;
+}
+
+.box-wrapper {
+	width: 100%;
+	padding-top: 2.5px;
+	padding-bottom: 5px;
+	-webkit-column-break-inside: avoid;
+	break-inside: avoid;
+	/* -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;*/
+}
+
+.absence-grid span {
+	text-align: right;
+}
+
+.absence-grid {
+	display: grid;
+	grid-column-gap: 0.5em;
+	padding-bottom: 4px;
+	grid-auto-columns: max-content;
+}
+
+.absence-grid-header {
+	grid-column-start: 1;
+	grid-column-end: 6;
+}
+
+.drag-handle {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background-color: var(--col-overview-dragbar);
+	pointer-events: auto;
+	cursor: move;
+	border-top: 2px solid #888;
+}
+
+.editable {
+	position: relative;
+	width: 100%;
+}
+
+.editable > button {
+	opacity: 0.5;
+	position: absolute;
+	right: 2px;
+	top: 7px;
+	background-color: transparent;
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+}
+
+.link-button {
+	width: 100%;
+	display: block;
+	padding: 0.5em;
+	height: 2em;
+}
+
+.saved-table {
+	margin-top: 10px;
+	padding: 0px;
+}
+
+.edit-mode-panel-color {
+	background-color: var(--col-overview-paneledit);
+}
+
+.a2a_overlay,
+.a2apage_modal,
+.a2a_menu a2a_full div,
+.a2a_localize div {
+	pointer-events: auto;
+}
+
+#alwaysOnOverlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: black;
+	color: var(--col-overview-alwayson-text);
+	display: flex;
+	align-items: center;
+	pointer-events: auto;
+	z-index: 500;
+	cursor: none;
+}
+
+#alwaysOnContent {
+	animation-name: move-always-on-contnet;
+	animation-iteration-count: infinite;
+	animation-duration: 360s;
+	transform: translate(0, -75%);
+	animation-timing-function: linear;
+	width: 100%;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	animation-direction: alternate;
+	flex-flow: column;
+	color: inherit;
+}
+
+#alwaysOnClock {
+	text-align: center;
+	font-weight: bold;
+	font-size: 15vw;
+	color: inherit;
+}
+
+#alwaysOnTimeLeft {
+	text-align: center;
+	font-size: 5vw;
+	color: inherit;
+}
+
+@keyframes move-battery-on-screen {
+	from {
+		transform: translate(0);
+	}
+	to {
+		transform: translateX(-150%);
+	}
+}
+
+@keyframes move-always-on-contnet {
+	0% {
+		transform: translate(0, -75%);
+	}
+	100% {
+		transform: translate(0, 75%);
+	}
+}
+
+#currentLessonProgress {
+	background-color: rgb(7, 167, 21);
+	height: 2px;
+	width: 0px;
+}
+
+#currentLessonProgressWrapper {
+	width: 100%;
+}
+
+#panels,
+#hiddenPanels {
+	/* column-gap: 7px;
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
+        column-gap: 5px;
+    -moz-column-gap: 5px;
+    -webkit-column-gap: 5px; */
+	padding: 5px;
+	min-height: 100px;
+	width: 100%;
+	position: relative;
+	pointer-events: auto;
+	display: grid;
+	grid-column-gap: 7px;
+}
+
+#hiddenPanels {
+	grid-column: 1/-1;
+	margin-top: 10px;
+	display: none;
+	background-color: var(--col-overview-hiddenpanels);
+	position: relative;
+}
+
+#boxEditBtn {
+	float: right;
+	background-color: transparent;
+}
+
+#batteryIcon {
+	width: 24px;
+	height: 16px;
+	border: 1px solid white;
+	background-color: black;
+	margin-right: 3px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	display: inline-block;
+	padding: 1px;
+	animation-name: move-battery-on-screen;
+	animation-iteration-count: infinite;
+	animation-duration: 360s;
+	animation-direction: alternate;
+	color: white;
+}
+
+#batteryLevel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	background-color: white;
+	display: inline-block;
+}
+
+#batteryIcon:after {
+	content: '';
+	position: absolute;
+	right: -4px;
+	width: 3px;
+	height: 8px;
+	top: 50%;
+	background-color: white;
+	transform: translateY(-50%);
+	display: inline-block;
+}
+
+#chargingIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: inline-block;
+	transform: translate(-50%, -50%) scale(0.5) rotate(-103deg);
+	filter: invert(0.5);
+	-moz-filter: invert(0.5);
+	-webkit-filter: invert(0.5);
+}
+
+#batteryLevelPercent {
+	position: absolute;
+	right: calc(100% + 5px);
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 10pt;
+	line-height: 16px;
+	height: 16px;
+	vertical-align: middle;
+	color: inherit;
+}
+
+#batteryLevelPercent:after {
+	content: '%';
+}
+
+@media only screen and (min-width: 597px) and (max-width: 894px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media only screen and (min-width: 894px) and (max-width: 1191px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media only screen and (min-width: 1191px) and (max-width: 1488px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}
+
+@media only screen and (min-width: 1488px) and (max-width: 1785px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(5, 1fr);
+	}
+}
+
+@media only screen and (min-width: 1785px) and (max-width: 2082px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(6, 1fr);
+	}
+}
+
+@media only screen and (min-width: 2082px) and (max-width: 2379px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(7, 1fr);
+	}
+}
+
+@media only screen and (min-width: 2379px) {
+	#panels,
+	#hiddenPanels {
+		grid-template-columns: repeat(8, 1fr);
+	}
+}
+
+@media only screen and (pointer: fine), (pointer: none) and (anypointer: fine or none) {
+	.editable > button {
+		opacity: 0;
+	}
+	.editable:hover > button {
+		opacity: 0.5;
+	}
+}
+
+.lessonLine::before {
+	font-weight: bold;
+}
+
+.subject::before {
+	content: 'Fach: ';
+}
+
+.room::before {
+	content: 'Raum: ';
+}

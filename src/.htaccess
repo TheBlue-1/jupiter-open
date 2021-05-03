@@ -1,0 +1,81 @@
+#FileETag MTime Size
+
+ErrorDocument 301 /ERRORDOCS/?c=301
+ErrorDocument 302 /ERRORDOCS/?c=302
+ErrorDocument 400 /ERRORDOCS/?c=400
+ErrorDocument 401 /ERRORDOCS/?c=401
+ErrorDocument 403 /ERRORDOCS/?c=403
+ErrorDocument 404 /ERRORDOCS/?c=404
+ErrorDocument 408 /ERRORDOCS/?c=408
+ErrorDocument 410 /ERRORDOCS/?c=410
+ErrorDocument 421 /ERRORDOCS/?c=421
+ErrorDocument 423 /ERRORDOCS/?c=423
+ErrorDocument 426 /ERRORDOCS/?c=426
+ErrorDocument 500 /ERRORDOCS/?c=500
+ErrorDocument 502 /ERRORDOCS/?c=502
+ErrorDocument 503 /ERRORDOCS/?c=503
+ErrorDocument 504 /ERRORDOCS/?c=504
+
+
+
+RewriteEngine on
+
+#robot txts to stop google from indexing wrong domains
+RewriteCond %{HTTP_HOST} ^.*jptr\.ml$ [NC]
+RewriteRule ^robots\.txt$ openRobots.txt
+
+RewriteRule ^robots\.txt$ closedRobots.txt
+
+
+#add site from link
+RewriteRule ^([a-z-]*)(?=\/|\?|\n|\r|$) /index.php?site=$1
+
+#add parameters from link
+RewriteRule ^([a-z-]*)\/?\?([^#]*) /index.php?site=$1&$2
+
+#if(dev&&branchcookie){
+RewriteCond %{HTTP_COOKIE} ^.*devbranch.*$ [NC]
+RewriteCond %{HTTP_HOST} ^dev\..* [NC]
+RewriteCond %{REQUEST_URI} !.branches
+RewriteCond %{HTTP_COOKIE} devbranch=([^;]+) [NC]
+#use branch files
+RewriteRule (.*) /.branches/%1/$1
+#}
+
+
+
+<IfModule mod_headers.c>
+    # Secure Cookies
+    Header always edit Set-Cookie (.*) "$1; Secure; HTTPOnly"
+    #Content-Security-Policy
+    Header set Content-Security-Policy: "default-src 'self';base-uri 'self';connect-src *;font-src 'self';form-action *;frame-ancestors 'self';frame-src *;img-src * data:;manifest-src 'self';media-src 'self' data:;object-src 'none';script-src * 'unsafe-inline' 'unsafe-eval';style-src * 'unsafe-inline';upgrade-insecure-requests;worker-src 'self' 'unsafe-inline' blob:"
+    #Cache Control
+    Header unset Cache-Control
+    Header always set Cache-Control "max-age=86400, must-revalidate"
+    Header always edit Cache-Control ^.*$ "max-age=86400, must-revalidate"
+    Header set Strict-Transport-Security "max-age=0" env=HTTPS
+    #iframes verbieten
+    Header always set X-FRAME-OPTIONS "DENY"
+    #xxss
+    Header always set X-XSS-Protection "1; mode=block"
+    #autodetect off
+    Header always set X-Content-Type-Options "nosniff"
+</IfModule>
+
+
+
+#alles verbieten
+<Filesmatch "\..*$">
+    Require local
+</FilesMatch>
+
+#whitelist
+<FilesMatch "\.(ico|svg|mp3|mp4|png|gif|js|php|webmanifest|xml|ttf)$">
+    Require all granted
+</FilesMatch>
+<FilesMatch "obots.txt$">
+    Require all granted
+</FilesMatch>
+<FilesMatch "^settings-v2.json$">
+    Require all granted
+</FilesMatch>

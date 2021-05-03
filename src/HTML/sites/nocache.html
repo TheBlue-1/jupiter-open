@@ -1,0 +1,33 @@
+<php-title />Offline
+<php-metas />
+<meta name="robots" content="noindex" />
+<php-outercontent />
+<div>
+	<p style="text-align: center">Diese Seite wurde noch nicht heruntergeladen und du hast keine Verbindung.</p>
+</div>
+<php-content />
+<div id="noConnIcon" onclick="incSecrCount()" style="pointer-events: all" class="no-conn"></div>
+
+<form id="redirect" method="POST" action="/SECRET/?secret=thatsAnError">
+	<input type="hidden" name="secret" value="thatsAnError" />
+</form>
+
+<php-scripts />
+<script>
+	var secretCounter = 0
+
+	function incSecrCount() {
+		secretCounter++
+		if (secretCounter >= 5) {
+			document.getElementById('noConnIcon').style.WebkitAnimationName = 'none'
+			document.getElementById('noConnIcon').style.animationName = 'none'
+			window.requestAnimationFrame(function () {
+				window.requestAnimationFrame(function () {
+					document.getElementById('noConnIcon').style.WebkitAnimationName = 'shake'
+					document.getElementById('noConnIcon').style.animationName = 'shake'
+				})
+			})
+		}
+		if (navigator.onLine && secretCounter >= 10) document.getElementById('redirect').submit()
+	}
+</script>

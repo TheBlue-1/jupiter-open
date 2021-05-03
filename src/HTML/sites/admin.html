@@ -1,0 +1,76 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Admin - Console <php-minrank />8
+<php-content />
+<style>
+	.n-form {
+		border-radius: 10px;
+		border: black;
+		background: wheat;
+		width: 40%;
+		padding: 2%;
+	}
+	.n-form input {
+		width: 100%;
+	}
+</style>
+<form class="n-form" action="" autocomplete="off">
+	<h3>Edit Account:</h3>
+	<select id="userId" onchange="loadEditData()">
+		<option value="[]">Own Account</option>
+	</select>
+	<div class="half">Username:</div>
+	<div class="half">
+		<input type="text" id="user" value="" />
+	</div>
+	<div class="half">Password:</div>
+	<div class="half">
+		<input type="password" id="pass" value="" autocomplete="new-password" />
+	</div>
+	<div class="half">Untis-Username:</div>
+	<div class="half">
+		<input type="text" id="uUser" value="" />
+	</div>
+	<div class="half">Untis-Password:</div>
+	<div class="half">
+		<input type="password" id="uPass" value="" autocomplete="new-password" />
+	</div>
+	<p>Rank:</p>
+	<button type="button" onclick="change()">Save Changes</button>
+</form>
+<form class="n-form" action="/PHP/ajax.php" method="POST" autocomplete="off">
+	<h3>New Account:</h3>
+	<input hidden required readonly name="type" value="set" />
+	<input hidden required readonly name="setType" value="addEmp" />
+	<div class="half">Username:</div>
+	<div class="half">
+		<input type="text" id="nuser" value="" />
+	</div>
+	<div class="half">Password:</div>
+	<div class="half">
+		<input type="password" id="npass" value="" autocomplete="new-password" />
+	</div>
+	<div class="half">School:</div>
+	<div class="half">
+		<input type="text" id="nschool" value="" />
+	</div>
+	<div class="half">Untis-Username:</div>
+	<div class="half">
+		<input type="text" id="nuUser" value="" />
+	</div>
+	<div class="half">Untis-Password:</div>
+	<div class="half">
+		<input type="password" id="nuPass" value="" autocomplete="new-password" />
+	</div>
+	<div class="half">Rank:</div>
+
+	<div class="half">
+		<input type="text" id="nrank" value="" />
+	</div>
+	<button type="button" onclick="create()">Create Account</button>
+</form>
+<php-scripts> <script src="/JS/sites/admin.js"></script></php-scripts>

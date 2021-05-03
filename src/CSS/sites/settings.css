@@ -1,0 +1,108 @@
+:root {
+	--col-settings-setting: #fff;
+	--col-settings-title: #000;
+}
+
+section {
+	pointer-events: none;
+}
+
+section > * {
+	font-weight: normal;
+	width: 100%;
+	pointer-events: auto;
+}
+
+.section-title {
+	font-weight: bold;
+	padding: 10px;
+	padding-top: 15px;
+	color: var(--col-settings-title);
+}
+
+x-setting {
+	padding: 10px;
+	display: inline-flex;
+	align-content: center;
+	align-items: center;
+	margin-bottom: 1px;
+	background-color: var(--col-settings-setting);
+	justify-content: space-between;
+	flex-wrap: wrap;
+	box-shadow: 2px 3px 4px 0px #00000033;
+}
+
+.setting-value {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	flex-grow: 1;
+	flex-basis: 0;
+	justify-content: flex-end;
+}
+
+.setting-value > .toggle {
+	position: relative;
+	height: var(--toggle-height);
+	width: var(--toggle-width);
+	min-width: var(--toggle-width);
+}
+
+.setting-value > .toggle > .slider {
+	height: var(--toggle-height);
+	width: var(--toggle-width);
+	position: absolute;
+	right: 0;
+	left: initial;
+}
+
+.setting-disabled {
+	background: #dbdbdb;
+	pointer-events: none;
+}
+
+.setting-disabled * {
+	pointer-events: none;
+}
+
+.setting-value > * {
+	min-height: 25px;
+}
+
+.setting-value > :first-child {
+	min-width: 150px;
+}
+
+.setting-value > input[type='range'] {
+	width: 150px;
+}
+
+.setting-name {
+	display: inline-block;
+	word-break: break-word;
+	padding-right: 5px;
+	min-width: 150px;
+	flex-grow: 2;
+	flex-basis: 0;
+}
+
+.reset-button {
+	background-color: transparent;
+	margin-left: 10px;
+	width: 25px;
+}
+
+.reset-button > img {
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+}
+
+#content {
+	width: 100%;
+	max-width: 600px;
+	margin: 0 auto;
+	min-height: 100%;
+	--toggle-height: 25px;
+	--toggle-width: calc(var(--toggle-height) * 2.5);
+}

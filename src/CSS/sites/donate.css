@@ -1,0 +1,14 @@
+#donationBtn {
+	background: #28a728;
+	display: inline-block;
+	padding: 17px;
+	text-align: center;
+	font-size: 5vw;
+	color: #69dc69;
+	margin-top: 7px;
+}
+
+.hor-center {
+	width: 100%;
+	text-align: center;
+}

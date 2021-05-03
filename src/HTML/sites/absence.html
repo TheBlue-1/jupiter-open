@@ -1,0 +1,41 @@
+<!--
+  ~ Copyright ©2018
+  ~ Written by:
+  ~ Maximilian Mayrhofer
+  ~ Wendelin Muth
+  -->
+<php-title />Abwesenheiten: Hier kannst du deine Fehlstunden anschauen
+<php-metas />
+<meta property="og:title" content="Abwesenheiten: Hier kannst du deine Fehlstunden sehen" />
+<meta property="og:url" content="/absence/" />
+<meta
+	property="og:description"
+	content="Sieh dir deine Schulabwesenheiten und Fehlstunden im simplen Design der neuen WebUntis Alternative Jupiter an. Es ist kostenlos und übersichtlich."
+/>
+<meta name="keywords" content="Abwesenheit,Fehlstunde,Untis,Jupiter,WebUntis Alternative" />
+<meta
+	name="description"
+	content="Sieh dir deine Schulabwesenheiten und Fehlstunden im simplen Design der neuen WebUntis Alternative Jupiter an. Es ist kostenlos und übersichtlich."
+/>
+<php-outeroverlays />
+<div id="contentShadow"></div>
+<php-outercontent />
+<label class="switch-medium">
+	<input type="checkbox" onchange="filter('isExcused', this.checked?false:null)" />
+	<span class="slider round"></span>
+</label>
+<span style="display: inline-block; height: 21.86px; line-height: 21.86px; position: relative; bottom: 4px">Nur Unentschuldigt</span>
+<h4 id="headline" class="menu-button">
+	Fehlstunden
+	<div id="downloadBtns">
+		<span onclick="excuses.start()" id="downloadStart" class="download-icon" title="Entschuldigungen Herunterladen"></span>
+		<span onclick="excuses.cancel()" id="downloadCancel" class="cancel-icon" title="Abbrechen"></span>
+		<span onclick="excuses.download()" id="downloadCommit" class="check-icon" title="OK"></span>
+		<button onclick="excuses.cancel()" id="downloadLink" class="download-icon" title="Herunterladen"></button>
+	</div>
+</h4>
+<php-content />
+<div id="summary"></div>
+<div id="absence"></div>
+<php-scripts />
+<script src="/JS/sites/absence.js"></script>
